@@ -54,7 +54,7 @@
 
     <div class="login-right">
 
-        <div class="login-form">
+        <div id="loginForm" class="login-form">
 
             <h1>Welcome Back</h1>
 
@@ -127,7 +127,7 @@
 
                 <button
                     class="link-button"
-                    onclick="createAccount()"
+                    onclick="showRegister()"
                 >
                     Create an account
                 </button>
@@ -138,9 +138,37 @@
                 id="loginMessage"
                 class="login-message"
             ></p>
-
+            <hr>
         </div>
+<div id="registerForm" class="login-form hidden">
 
+    <h2>Create Account</h2>
+
+    <input type="text" id="registerName" placeholder="Full Name">
+
+    <input type="email" id="registerEmail" placeholder="Email">
+
+    <input type="password" id="registerPassword" placeholder="Password">
+
+    <select id="registerRole">
+        <option value="Student">Student</option>
+        <option value="Staff">Staff</option>
+    </select>
+
+    <button class="primary-button" onclick="register()">
+        Register
+    </button>
+    <p id="registerMessage" class="login-message"></p>
+    <p>
+        Already have an account?
+        <button class="link-button" onclick="showLogin()">
+            Login
+        </button>
+    </p>
+
+</div>
+
+    
     </div>
 
 </section>

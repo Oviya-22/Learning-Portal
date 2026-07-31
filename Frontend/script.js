@@ -2,54 +2,111 @@
    LOGIN
 ========================================== */
 
-function login() {
+async function login() {
 
-    const email =
-        document.getElementById(
-            "loginEmail"
-        ).value;
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+    const message = document.getElementById("loginMessage");
 
-    const password =
-        document.getElementById(
-            "loginPassword"
-        ).value;
+    message.textContent = "";
 
-    const message =
-        document.getElementById(
-            "loginMessage"
-        );
+    try {
 
+        const response = await fetch("http://localhost:5000/api/auth/login", {
 
-    if (
-        email.trim() === "" ||
-        password.trim() === ""
-    ) {
+            method: "POST",
 
-        message.textContent =
-            "Please enter your email and password.";
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-        return;
+            body: JSON.stringify({
+                email,
+                password
+            })
+
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            localStorage.setItem("token", data.token);
+
+            document.getElementById("loginPage").classList.add("hidden");
+            document.getElementById("portal").classList.remove("hidden");
+
+        } else {
+
+            message.textContent = data.message;
+
+        }
+
+    } catch (error) {
+
+        message.textContent = "Unable to connect to server.";
+
     }
 
+}
+/* ==========================================
+   REGISTER
+========================================== */
 
-    document
-        .getElementById(
-            "loginPage"
-        )
-        .classList
-        .add("hidden");
+async function register() {
 
+    const name = document.getElementById("registerName").value;
+    const email = document.getElementById("registerEmail").value;
+    const password = document.getElementById("registerPassword").value;
+    const role = document.getElementById("registerRole").value;
 
-    document
-        .getElementById(
-            "portal"
-        )
-        .classList
-        .remove("hidden");
+    const message = document.getElementById("registerMessage");
+
+    message.textContent = "";
+
+    try {
+
+        const response = await fetch("http://localhost:5000/api/auth/register", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                name,
+                email,
+                password,
+                role
+            })
+
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            message.style.color = "green";
+            message.textContent = "Registration successful!";
+
+            showLogin();
+
+        } else {
+
+            message.style.color = "red";
+            message.textContent = data.message;
+
+        }
+
+    } catch (error) {
+
+        message.style.color = "red";
+        message.textContent = "Unable to connect to server.";
+
+    }
 
 }
-
-
 function googleLogin() {
 
     document
@@ -2064,4 +2121,14 @@ function searchPortal() {
         }
     );
 
+}
+
+function showRegister() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+}
+
+function showLogin() {
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
 }
