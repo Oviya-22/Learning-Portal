@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LearnSphere Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ==================================================
+     LOGIN PAGE
+================================================== -->
+
+<section id="loginPage" class="login-page">
+
+    <div class="login-left">
+
+        <div class="login-logo">
+            <div class="logo-box">L</div>
+            <h2>LearnSphere</h2>
+        </div>
+
+        <div class="login-content">
+
+            <p class="small-title">
+                SMART LEARNING PLATFORM
+            </p>
+
+            <h1>
+                Learn. Practice.<br>
+                Achieve More.
+            </h1>
+
+            <p class="login-description">
+                One platform for courses, practice,
+                assessments, coding and learning analytics.
+            </p>
+
+            <div class="login-features">
+                <p>✓ Personalized Learning</p>
+                <p>✓ AI-Powered Support</p>
+                <p>✓ Practice and Assessments</p>
+                <p>✓ Track Your Progress</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="login-right">
+
+        <div class="login-form">
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Sign in to continue learning.
+            </p>
+
+            <label>Email Address</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter your email"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter your password"
+            >
+
+            <div class="login-options">
+
+                <label class="remember">
+
+                    <input type="checkbox">
+
+                    Remember me
+
+                </label>
+
+                <button
+                    class="link-button"
+                    onclick="forgotPassword()"
+                >
+                    Forgot Password?
+                </button>
+
+            </div>
+
+            <button
+                class="primary-button login-button"
+                onclick="login()"
+            >
+                Sign In
+            </button>
+
+            <div class="or-line">
+
+                <span></span>
+
+                OR
+
+                <span></span>
+
+            </div>
+
+            <button
+                class="google-button"
+                onclick="googleLogin()"
+            >
+                G&nbsp;&nbsp; Continue with Google
+            </button>
+
+            <p class="new-user">
+
+                New user?
+
+                <button
+                    class="link-button"
+                    onclick="createAccount()"
+                >
+                    Create an account
+                </button>
+
+            </p>
+
+            <p
+                id="loginMessage"
+                class="login-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     MAIN PORTAL
+================================================== -->
+
+<section
+    id="portal"
+    class="portal hidden"
+>
+
+
+<!-- ==================================================
+     LEFT SIDEBAR
+================================================== -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+
+        <div class="logo-box">
+            L
+        </div>
+
+        <h2>
+            LearnSphere
+        </h2>
+
+    </div>
+
+
+    <div class="student-card">
+
+        <div class="student-avatar">
+            S
+        </div>
+
+        <div>
+
+            <h3>
+                Student
+            </h3>
+
+            <p>
+                Level 8 Learner
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+        <p class="menu-title">
+            MAIN
+        </p>
+
+        <button
+            class="nav-button active"
+            onclick="showPage('dashboard', this)"
+        >
+            🏠
+            Dashboard
+        </button>
+
+
+        <p class="menu-title">
+            LEARNING
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="showPage('courses', this)"
+        >
+            📚
+            Course Management
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('learning', this)"
+        >
+            ▶️
+            Learning Module
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('aiTutor', this)"
+        >
+            🤖
+            AI Tutor
+        </button>
+
+
+        <p class="menu-title">
+            PRACTICE
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="showPage('practice', this)"
+        >
+            📝
+            Practice
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('coding', this)"
+        >
+            💻
+            Coding Lab
+        </button>
+
+
+        <p class="menu-title">
+            ASSESSMENT
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="showPage('assessment', this)"
+        >
+            📋
+            Assessments
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('assignments', this)"
+        >
+            📁
+            Assignments
+        </button>
+
+
+        <p class="menu-title">
+            INSIGHTS
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="showPage('certificates', this)"
+        >
+            🏆
+            Certificates
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('gamification', this)"
+        >
+            🎮
+            Achievements
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('notifications', this)"
+        >
+            🔔
+            Notifications
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="showPage('reports', this)"
+        >
+            📊
+            Reports
+        </button>
+
+
+        <p class="menu-title">
+            ACCOUNT
+        </p>
+
+        <button
+            class="nav-button"
+            onclick="showPage('settings', this)"
+        >
+            ⚙️
+            Settings
+        </button>
+
+        <button
+            class="nav-button logout"
+            onclick="logout()"
+        >
+            🚪
+            Logout
+        </button>
+
+    </nav>
+
+</aside>
+
+
+<!-- ==================================================
+     MAIN AREA
+================================================== -->
+
+<main class="main-area">
+
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+    <div>
+
+        <h2 id="topTitle">
+            Dashboard
+        </h2>
+
+        <p id="topDescription">
+            Track your learning progress.
+        </p>
+
+    </div>
+
+
+    <div class="topbar-right">
+
+        <div class="search-box">
+
+            🔍
+
+            <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search..."
+                oninput="searchPortal()"
+            >
+
+        </div>
+
+        <button
+            class="notification-icon"
+            onclick="showPage('notifications')"
+        >
+            🔔
+        </button>
+
+        <div class="top-profile">
+
+            <div class="small-avatar">
+                S
+            </div>
+
+            <div>
+
+                <strong>
+                    Student
+                </strong>
+
+                <p>
+                    Learner
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ==================================================
+     DASHBOARD
+================================================== -->
+
+<section
+    id="dashboard"
+    class="page active-page"
+>
+
+    <div class="welcome-box">
+
+        <div>
+
+            <p class="small-title">
+                WELCOME BACK
+            </p>
+
+            <h1>
+                Continue Your Learning Journey
+            </h1>
+
+            <p>
+                Complete your courses, practice questions
+                and improve your skills.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="showPage('learning')"
+        >
+            Continue Learning
+        </button>
+
+    </div>
+
+
+    <h2 class="section-heading">
+
+        Learning Analytics
+
+    </h2>
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <div>
+
+                <p>
+                    Courses Enrolled
+                </p>
+
+                <h2>
+                    6
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <p>
+                    Completed Courses
+                </p>
+
+                <h2>
+                    3
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📝
+            </div>
+
+            <div>
+
+                <p>
+                    Average Score
+                </p>
+
+                <h2>
+                    84%
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <div>
+
+                <p>
+                    Learning Streak
+                </p>
+
+                <h2>
+                    8 Days
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-columns">
+
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <h2>
+                    Ongoing Courses
+                </h2>
+
+                <button
+                    class="text-button"
+                    onclick="showPage('courses')"
+                >
+                    View All
+                </button>
+
+            </div>
+
+
+            <div class="course-row">
+
+                <div class="course-color java">
+                    J
+                </div>
+
+                <div class="course-details">
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        70% completed
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress"
+                            style="width:70%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="course-row">
+
+                <div class="course-color python">
+                    P
+                </div>
+
+                <div class="course-details">
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                    <p>
+                        45% completed
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress"
+                            style="width:45%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="course-row">
+
+                <div class="course-color web">
+                    W
+                </div>
+
+                <div class="course-details">
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        30% completed
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress"
+                            style="width:30%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <h2>
+                    Completed Courses
+                </h2>
+
+                <span class="success-text">
+                    3 Completed
+                </span>
+
+            </div>
+
+
+            <div class="completed-course">
+
+                <span>
+                    ✅
+                </span>
+
+                <div>
+
+                    <h3>
+                        HTML Fundamentals
+                    </h3>
+
+                    <p>
+                        Completed successfully
+                    </p>
+
+                </div>
+
+                <strong>
+                    92%
+                </strong>
+
+            </div>
+
+
+            <div class="completed-course">
+
+                <span>
+                    ✅
+                </span>
+
+                <div>
+
+                    <h3>
+                        CSS Fundamentals
+                    </h3>
+
+                    <p>
+                        Completed successfully
+                    </p>
+
+                </div>
+
+                <strong>
+                    88%
+                </strong>
+
+            </div>
+
+
+            <div class="completed-course">
+
+                <span>
+                    ✅
+                </span>
+
+                <div>
+
+                    <h3>
+                        JavaScript Basics
+                    </h3>
+
+                    <p>
+                        Completed successfully
+                    </p>
+
+                </div>
+
+                <strong>
+                    85%
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     COURSE MANAGEMENT
+================================================== -->
+
+<section
+    id="courses"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                COURSE MANAGEMENT
+            </p>
+
+            <h1>
+                My Courses
+            </h1>
+
+            <p>
+                Manage your courses and learning paths.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="openCourseForm()"
+        >
+            + Create Course
+        </button>
+
+    </div>
+
+
+    <div
+        id="courseForm"
+        class="form-card hidden"
+    >
+
+        <h2>
+            Create New Course
+        </h2>
+
+        <input
+            id="newCourseName"
+            placeholder="Course name"
+        >
+
+        <select id="newCourseCategory">
+
+            <option>
+                Programming
+            </option>
+
+            <option>
+                Web Development
+            </option>
+
+            <option>
+                Database
+            </option>
+
+        </select>
+
+        <button
+            class="primary-button"
+            onclick="createCourse()"
+        >
+            Save Course
+        </button>
+
+    </div>
+
+
+    <div
+        id="courseList"
+        class="module-grid"
+    >
+
+        <div class="module-card">
+
+            <div class="module-icon">
+                ☕
+            </div>
+
+            <h2>
+                Java Programming
+            </h2>
+
+            <p>
+                Learn Java concepts, OOP and coding.
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    style="width:70%"
+                ></div>
+
+            </div>
+
+            <p>
+                70% completed
+            </p>
+
+            <button
+                class="primary-button"
+                onclick="showPage('learning')"
+            >
+                Open Course
+            </button>
+
+        </div>
+
+
+        <div class="module-card">
+
+            <div class="module-icon">
+                🐍
+            </div>
+
+            <h2>
+                Python Programming
+            </h2>
+
+            <p>
+                Learn Python from basics to projects.
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    style="width:45%"
+                ></div>
+
+            </div>
+
+            <p>
+                45% completed
+            </p>
+
+            <button
+                class="primary-button"
+                onclick="showPage('learning')"
+            >
+                Open Course
+            </button>
+
+        </div>
+
+
+        <div class="module-card">
+
+            <div class="module-icon">
+                🎨
+            </div>
+
+            <h2>
+                CSS Fundamentals
+            </h2>
+
+            <p>
+                Design responsive and attractive websites.
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    style="width:100%"
+                ></div>
+
+            </div>
+
+            <p>
+                Completed
+            </p>
+
+            <button
+                class="secondary-button"
+                onclick="showPage('learning')"
+            >
+                View Course
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     LEARNING MODULE
+================================================== -->
+
+<section
+    id="learning"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                LEARNING
+            </p>
+
+            <h1>
+                Learning Module
+            </h1>
+
+            <p>
+                Continue learning from where you stopped.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="learning-layout">
+
+        <div class="video-box">
+
+            <div class="video-placeholder">
+
+                ▶
+
+            </div>
+
+            <h2>
+                Java Object-Oriented Programming
+            </h2>
+
+            <p>
+                Learn classes, objects, inheritance
+                and polymorphism.
+            </p>
+
+        </div>
+
+
+        <div class="lesson-list">
+
+            <h2>
+                Course Content
+            </h2>
+
+            <button>
+                ✓ Introduction to Java
+            </button>
+
+            <button>
+                ✓ Variables and Data Types
+            </button>
+
+            <button>
+                ▶ Classes and Objects
+            </button>
+
+            <button>
+                🔒 Inheritance
+            </button>
+
+            <button>
+                🔒 Polymorphism
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     AI TUTOR
+================================================== -->
+
+<section
+    id="aiTutor"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                AI SUPPORT
+            </p>
+
+            <h1>
+                AI Tutor
+            </h1>
+
+            <p>
+                Ask questions and understand concepts.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="chat-card">
+
+        <div
+            id="chatMessages"
+            class="chat-messages"
+        >
+
+            <div class="bot-message">
+
+                👋 Hello! I am your AI Tutor.
+                Ask me about Java, Python,
+                HTML, CSS or programming.
+
+            </div>
+
+        </div>
+
+
+        <div class="chat-input">
+
+            <input
+                id="aiQuestion"
+                placeholder="Ask your question..."
+            >
+
+            <button
+                class="primary-button"
+                onclick="askAI()"
+            >
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     PRACTICE
+================================================== -->
+
+<section
+    id="practice"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                PRACTICE
+            </p>
+
+            <h1>
+                Practice Questions
+            </h1>
+
+            <p>
+                Select a course and practice questions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="practiceCourses"
+        class="course-selection"
+    >
+
+        <h2>
+            What course do you want to practice?
+        </h2>
+
+        <div class="selection-grid">
+
+            <button
+                onclick="startPractice('Java')"
+            >
+                ☕
+                <strong>Java</strong>
+                <span>
+                    Practice Java questions
+                </span>
+            </button>
+
+            <button
+                onclick="startPractice('Python')"
+            >
+                🐍
+                <strong>Python</strong>
+                <span>
+                    Practice Python questions
+                </span>
+            </button>
+
+            <button
+                onclick="startPractice('CSS')"
+            >
+                🎨
+                <strong>CSS</strong>
+                <span>
+                    Practice CSS questions
+                </span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="practiceQuestionBox"
+        class="question-card hidden"
+    >
+
+        <p id="practiceNumber"></p>
+
+        <h2 id="practiceQuestion"></h2>
+
+        <div
+            id="practiceOptions"
+            class="options"
+        ></div>
+
+        <button
+            class="primary-button"
+            onclick="nextPracticeQuestion()"
+        >
+            Next Question
+        </button>
+
+    </div>
+
+
+    <div
+        id="practiceResult"
+        class="result-card hidden"
+    >
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+        <h1>
+            Practice Completed
+        </h1>
+
+        <h2 id="practiceScore"></h2>
+
+        <button
+            class="primary-button"
+            onclick="restartPractice()"
+        >
+            Practice Again
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CODING LAB
+================================================== -->
+
+<section
+    id="coding"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                CODING LAB
+            </p>
+
+            <h1>
+                Programming Practice
+            </h1>
+
+            <p>
+                Select a programming language first.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="codingCourses"
+        class="course-selection"
+    >
+
+        <h2>
+            Choose a programming language
+        </h2>
+
+        <div class="selection-grid">
+
+            <button
+                onclick="openCodingLab('Java')"
+            >
+                ☕
+                <strong>Java</strong>
+                <span>
+                    Solve Java programs
+                </span>
+            </button>
+
+            <button
+                onclick="openCodingLab('Python')"
+            >
+                🐍
+                <strong>Python</strong>
+                <span>
+                    Solve Python programs
+                </span>
+            </button>
+
+            <button
+                onclick="openCodingLab('JavaScript')"
+            >
+                JS
+                <strong>JavaScript</strong>
+                <span>
+                    Solve JavaScript programs
+                </span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="codingWorkspace"
+        class="coding-workspace hidden"
+    >
+
+        <div class="coding-question">
+
+            <p id="codingLanguage"></p>
+
+            <h2>
+                Print Hello World
+            </h2>
+
+            <p>
+                Write a program to print
+                <strong>Hello World</strong>.
+            </p>
+
+            <h3>
+                Expected Output
+            </h3>
+
+            <pre>Hello World</pre>
+
+        </div>
+
+
+        <div class="editor-section">
+
+            <textarea
+                id="codeEditor"
+                placeholder="Write your code here..."
+            ></textarea>
+
+            <div class="editor-buttons">
+
+                <button
+                    class="secondary-button"
+                    onclick="runCode()"
+                >
+                    ▶ Run Code
+                </button>
+
+                <button
+                    class="primary-button"
+                    onclick="submitCode()"
+                >
+                    Submit Code
+                </button>
+
+            </div>
+
+            <div
+                id="codeOutput"
+                class="code-output"
+            >
+                Output will appear here.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     ASSESSMENT
+================================================== -->
+
+<section
+    id="assessment"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                ASSESSMENT
+            </p>
+
+            <h1>
+                Course Assessment
+            </h1>
+
+            <p>
+                Select a course and complete 10 questions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="assessmentCourses"
+        class="course-selection"
+    >
+
+        <h2>
+            Select your interested course
+        </h2>
+
+        <div class="selection-grid">
+
+            <button
+                onclick="startAssessment('Java')"
+            >
+                ☕
+                <strong>Java</strong>
+                <span>
+                    10 questions
+                </span>
+            </button>
+
+            <button
+                onclick="startAssessment('Python')"
+            >
+                🐍
+                <strong>Python</strong>
+                <span>
+                    10 questions
+                </span>
+            </button>
+
+            <button
+                onclick="startAssessment('CSS')"
+            >
+                🎨
+                <strong>CSS</strong>
+                <span>
+                    10 questions
+                </span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="assessmentBox"
+        class="question-card hidden"
+    >
+
+        <div class="assessment-progress">
+
+            <span id="assessmentNumber"></span>
+
+            <div class="progress-bar">
+
+                <div
+                    id="assessmentProgress"
+                    class="progress"
+                ></div>
+
+            </div>
+
+        </div>
+
+        <h2 id="assessmentQuestion"></h2>
+
+        <div
+            id="assessmentOptions"
+            class="options"
+        ></div>
+
+        <button
+            class="primary-button"
+            onclick="nextAssessmentQuestion()"
+        >
+            Next
+        </button>
+
+    </div>
+
+
+    <div
+        id="assessmentResult"
+        class="result-card hidden"
+    >
+
+        <div class="result-icon">
+
+            🏆
+
+        </div>
+
+        <h1>
+            Assessment Completed
+        </h1>
+
+        <h2 id="assessmentScore"></h2>
+
+        <p id="assessmentMessage"></p>
+
+        <button
+            class="primary-button"
+            onclick="restartAssessment()"
+        >
+            Take Another Assessment
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     ASSIGNMENTS
+================================================== -->
+
+<section
+    id="assignments"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                ASSIGNMENTS
+            </p>
+
+            <h1>
+                My Assignments
+            </h1>
+
+            <p>
+                View deadlines and submit your work.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="assignment-card">
+
+        <div>
+
+            <h2>
+                Java OOP Assignment
+            </h2>
+
+            <p>
+                Create a Java program using
+                classes and objects.
+            </p>
+
+            <span class="deadline">
+                Due: August 10
+            </span>
+
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="submitAssignment()"
+        >
+            Submit Assignment
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CERTIFICATES
+================================================== -->
+
+<section
+    id="certificates"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                CERTIFICATES
+            </p>
+
+            <h1>
+                My Certificates
+            </h1>
+
+            <p>
+                Download and verify your certificates.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="certificate-card">
+
+        <div class="certificate-icon">
+            🏆
+        </div>
+
+        <h2>
+            CSS Fundamentals
+        </h2>
+
+        <p>
+            Successfully completed.
+        </p>
+
+        <button
+            class="primary-button"
+            onclick="downloadCertificate()"
+        >
+            Download PDF
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     GAMIFICATION
+================================================== -->
+
+<section
+    id="gamification"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                ACHIEVEMENTS
+            </p>
+
+            <h1>
+                Your Achievements
+            </h1>
+
+            <p>
+                Earn points, badges and rewards.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⭐
+            </div>
+
+            <div>
+
+                <p>
+                    XP Points
+                </p>
+
+                <h2>
+                    2,450
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <div>
+
+                <p>
+                    Daily Streak
+                </p>
+
+                <h2>
+                    8 Days
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎖️
+            </div>
+
+            <div>
+
+                <p>
+                    Badges
+                </p>
+
+                <h2>
+                    12
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     NOTIFICATIONS
+================================================== -->
+
+<section
+    id="notifications"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                NOTIFICATIONS
+            </p>
+
+            <h1>
+                Notifications
+            </h1>
+
+            <p>
+                Stay updated with learning activities.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="notificationList"
+        class="notification-list"
+    >
+
+        <div class="notification-card">
+
+            <div class="notification-symbol">
+                📚
+            </div>
+
+            <div class="notification-content">
+
+                <h3>
+                    Course Invitation
+                </h3>
+
+                <p>
+                    You are invited to join
+                    Advanced Java Programming.
+                </p>
+
+                <div class="notification-actions">
+
+                    <button
+                        class="accept-button"
+                        onclick="acceptNotification(this)"
+                    >
+                        Accept
+                    </button>
+
+                    <button
+                        class="decline-button"
+                        onclick="declineNotification(this)"
+                    >
+                        Decline
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-card">
+
+            <div class="notification-symbol">
+                📝
+            </div>
+
+            <div class="notification-content">
+
+                <h3>
+                    Assessment Reminder
+                </h3>
+
+                <p>
+                    Your Python assessment is scheduled
+                    for tomorrow.
+                </p>
+
+                <button
+                    class="primary-button"
+                    onclick="showPage('assessment')"
+                >
+                    Start Assessment
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-card">
+
+            <div class="notification-symbol">
+                🏆
+            </div>
+
+            <div class="notification-content">
+
+                <h3>
+                    Certificate Ready
+                </h3>
+
+                <p>
+                    Your CSS Fundamentals certificate
+                    is ready.
+                </p>
+
+                <button
+                    class="secondary-button"
+                    onclick="downloadCertificate()"
+                >
+                    Download
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     REPORTS
+================================================== -->
+
+<section
+    id="reports"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                REPORTS
+            </p>
+
+            <h1>
+                Learning Reports
+            </h1>
+
+            <p>
+                View your course and assessment reports.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="report-grid">
+
+        <div class="report-card">
+
+            <h2>
+                Student Report
+            </h2>
+
+            <p>
+                Overall learning progress and scores.
+            </p>
+
+            <button
+                class="primary-button"
+                onclick="generateReport('Student')"
+            >
+                Generate Report
+            </button>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h2>
+                Course Report
+            </h2>
+
+            <p>
+                Course completion information.
+            </p>
+
+            <button
+                class="primary-button"
+                onclick="generateReport('Course')"
+            >
+                Generate Report
+            </button>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <h2>
+                Assessment Report
+            </h2>
+
+            <p>
+                Assessment performance details.
+            </p>
+
+            <button
+                class="primary-button"
+                onclick="generateReport('Assessment')"
+            >
+                Generate Report
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SETTINGS
+================================================== -->
+
+<section
+    id="settings"
+    class="page"
+>
+
+    <div class="page-heading">
+
+        <div>
+
+            <p class="small-title">
+                ACCOUNT
+            </p>
+
+            <h1>
+                Settings
+            </h1>
+
+            <p>
+                Manage your account preferences.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="settings-layout">
+
+        <div class="settings-tabs">
+
+            <button
+                class="setting-tab active-setting"
+                onclick="openSetting('profile', this)"
+            >
+                Profile
+            </button>
+
+            <button
+                class="setting-tab"
+                onclick="openSetting('security', this)"
+            >
+                Security
+            </button>
+
+            <button
+                class="setting-tab"
+                onclick="openSetting('notificationSettings', this)"
+            >
+                Notifications
+            </button>
+
+            <button
+                class="setting-tab"
+                onclick="openSetting('appearance', this)"
+            >
+                Appearance
+            </button>
+
+        </div>
+
+
+        <div class="settings-content">
+
+            <div
+                id="profile"
+                class="setting-content active-setting-content"
+            >
+
+                <h2>
+                    Profile Information
+                </h2>
+
+                <p>
+                    Update your account details.
+                </p>
+
+                <div class="profile-photo">
+
+                    <div class="large-avatar">
+                        S
+                    </div>
+
+                    <button class="secondary-button">
+                        Change Photo
+                    </button>
+
+                </div>
+
+                <div class="two-inputs">
+
+                    <div>
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            value="Student"
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            value="student@email.com"
+                        >
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    onclick="saveSettings()"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+
+            <div
+                id="security"
+                class="setting-content"
+            >
+
+                <h2>
+                    Security
+                </h2>
+
+                <p>
+                    Change your password.
+                </p>
+
+                <input
+                    type="password"
+                    placeholder="Current password"
+                >
+
+                <input
+                    type="password"
+                    placeholder="New password"
+                >
+
+                <button
+                    class="primary-button"
+                    onclick="saveSettings()"
+                >
+                    Update Password
+                </button>
+
+            </div>
+
+
+            <div
+                id="notificationSettings"
+                class="setting-content"
+            >
+
+                <h2>
+                    Notification Preferences
+                </h2>
+
+                <label class="switch-row">
+
+                    Email Notifications
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                </label>
+
+                <label class="switch-row">
+
+                    Assignment Reminders
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                </label>
+
+                <label class="switch-row">
+
+                    Assessment Updates
+
+                    <input
+                        type="checkbox"
+                        checked
+                    >
+
+                </label>
+
+            </div>
+
+
+            <div
+                id="appearance"
+                class="setting-content"
+            >
+
+                <h2>
+                    Appearance
+                </h2>
+
+                <p>
+                    Select your preferred theme.
+                </p>
+
+                <button
+                    class="secondary-button"
+                    onclick="toggleTheme()"
+                >
+                    Toggle Light / Dark Theme
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
