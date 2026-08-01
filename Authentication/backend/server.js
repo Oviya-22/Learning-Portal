@@ -48,3 +48,8 @@ app.get("/test-email", async (req, res) => {
     }
 
 });
+function showForgot() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("forgotForm").classList.remove("hidden");
+}
